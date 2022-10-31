@@ -10,4 +10,7 @@ app.listen(app.get('port'),()=>{
     console.log('estoy en el purto '+ app.get('port'))
 })
 
-console.log('hola miufdsg')
+//middlewares: func que se ejeccutan antes de llegar a la rutas
+
+
+//rutas
