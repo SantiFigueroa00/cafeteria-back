@@ -1,9 +1,11 @@
 import express from "express";
 import cors from 'cors'
 import morgan from "morgan";
+import productoRouter from './routes/productos.routes'
 import path from "path";
 //conxion con la DB
 import './database';
+
 
 //crear una instancia de express
 const app = express();
@@ -29,7 +31,8 @@ console.log(path.join(__dirname,'../public'))
 
 
 //rutas
-app.get('/prueba',(req,res)=>{
-    res.send('hola desde el backend en la peticion get')
-})
+// app.get('/prueba',(req,res)=>{
+//     res.send('hola desde el backend en la peticion get')
+// })
 
+app.use('/apicafe',productoRouter)
