@@ -1,17 +1,17 @@
 import Producto from "../models/producto,js";
 
-export const listarProductos = async(req, res) => {
+export const listarProductos = async (req, res) => {
   try {
     //buscar los producto
     const productos = await Producto.find();
-    //para filtrar 
+    //para filtrar
     // const productos = await Producto.find({categoria:'salado'})
-    res.status(200).json(productos)
+    res.status(200).json(productos);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(404).json({
-        mensaje: 'Error al buscar los productos'
-    })
+      mensaje: "Error al buscar los productos",
+    });
   }
 };
 
@@ -31,6 +31,22 @@ export const crearProducto = async (req, res) => {
     console.log(error);
     res.status(201).json({
       mensaje: "error al intentar agregar un producto",
+    });
+  }
+};
+
+export const obtenerProductos = async (req, res) => {
+  try {
+    //obtener el parametro
+    console.log(req.params.id);
+    //buscar en la db el producto
+    const productoBuscado = await Producto.findById(req.params.id);
+    //reponder al frontend
+    res.status(200).json(productoBuscado);
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      mensaje: "Error al buscar un producto",
     });
   }
 };
