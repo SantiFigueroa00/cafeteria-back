@@ -29,7 +29,7 @@ console.log(path.join(__dirname,'../public'))
 
 
 //rutas
-app.get('/',(req,res)=>{
+app.get('/prueba',(req,res)=>{
     res.send('hola desde el backend en la peticion get')
 })
 
